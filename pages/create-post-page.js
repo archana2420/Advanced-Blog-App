@@ -14,7 +14,6 @@ function CreatePostPage()
         const data = {
             'title':title,
             'body':content,
-            'userId':9,
             'comments':[]
         }
         try {

@@ -3,6 +3,7 @@ import { useState } from "react";
 
 
 
+
 function EditPage({post})
 {
     const router = useRouter()
@@ -13,7 +14,6 @@ function EditPage({post})
         const data = {
            "title":title,
            "body":content,
-           "userId":post.userId,
            "comments":post.comments
             
         }

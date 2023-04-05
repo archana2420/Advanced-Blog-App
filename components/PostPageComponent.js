@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
+import Pagination from "./Pagination"
 
 
 
@@ -10,6 +11,8 @@ function PostPageComponent({post})
 
     const [commentUser,setCommentUser] = useState('')
     const [commentContent,setCommentContent] = useState('')
+    const [currentPage,setCurrentPage] = useState(1)
+    const pageSize = 2
    
     
     
@@ -26,7 +29,6 @@ function PostPageComponent({post})
                 'body':commentContent,
                 'postId': post.id,
                 'user':{
-                    "id":91,
                     "username":commentUser
                 }  
             }]
@@ -82,12 +84,18 @@ function PostPageComponent({post})
         }
     }
 
+    function onPageChange(page)
+    {
+        setCurrentPage(page)
+    }
     
+    const startIndex = (currentPage-1)*pageSize
+    const slicedComments = post.comments.slice(startIndex,startIndex+pageSize)
 
     
     return (
         
-        <div className="content">
+        <div className="content-individual">
         <div className="btn-section">
 
         <button className="button"  >
@@ -107,7 +115,7 @@ function PostPageComponent({post})
         <hr></hr>
         <p>Comments:</p>
         {
-            post.comments.map((eachComment)=>{
+            slicedComments.map((eachComment)=>{
                 return (
                     <div key={eachComment.id} className="comments">
                         <h5 >{eachComment.user.username}</h5>
@@ -116,6 +124,14 @@ function PostPageComponent({post})
                 )
             })
         }
+        <Pagination
+            items={post.comments.length}
+            pageSize={pageSize}
+            currentPage={currentPage}
+            onPageChange={onPageChange}
+        >
+
+        </Pagination>
         <hr></hr>
         <div className="comment-form">
         <form onSubmit={handleForm}>
@@ -129,7 +145,7 @@ function PostPageComponent({post})
             <label >Comment: </label>
             <textarea placeholder="Enter Comment" name="commentContent" onChange={(e)=>{
                 setCommentContent(e.currentTarget.value)
-            }} required></textarea>
+            }} rows="3" cols="20" required></textarea>
             </div>
             <div>
                 <div className="flex-display">
