@@ -27,7 +27,7 @@ yarn dev
 
 ## Create Post Page
 
-->A form that accepts title and content
+->A form that accepts title and content(form validation done using regex)
 
 
 ## Post Page 
