@@ -18,7 +18,7 @@ yarn dev
 
 ## Home Page (root url)
 
-->List of Blogs are displayed 
+->List of Blogs are displayed  (paginated list of blogs)
 
 ->Each Blog when clicked routes to its entire content page 
 
@@ -27,7 +27,7 @@ yarn dev
 
 ## Create Post Page
 
-->A form that accepts title and content(form validation done using regex)
+->A form that accepts title and content  (form validation done using regex)
 
 
 ## Post Page 
