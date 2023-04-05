@@ -9,6 +9,7 @@ function EditPage({post})
     const router = useRouter()
     const [title,setTitle] = useState(post.title)
     const [content,setContent] = useState(post.body)
+    let regex = /^[a-zA-Z]+[0-9a-zA-Z !\.'?",]*$/
 
     async function sendEditedData(){
         const data = {
@@ -43,7 +44,15 @@ function EditPage({post})
     function handleEdit(e)
     {
         e.preventDefault()
-        sendEditedData()
+        if(regex.test(title.trim()) && regex.test(content.trim())  )
+        {
+            sendEditedData()
+        }
+        else{
+            alert('Check the title and content')
+            
+        }
+        
     }
     return (
         <div className="wrapper">

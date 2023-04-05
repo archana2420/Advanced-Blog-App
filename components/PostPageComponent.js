@@ -13,7 +13,8 @@ function PostPageComponent({post})
     const [commentContent,setCommentContent] = useState('')
     const [currentPage,setCurrentPage] = useState(1)
     const pageSize = 2
-   
+    
+    let regex = /^[a-zA-Z]+[0-9a-zA-Z !\.'?",]*$/
     
     
     
@@ -61,7 +62,14 @@ function PostPageComponent({post})
     const handleForm = (e)=>
     {
         e.preventDefault()
-        sendData()
+        if(regex.test(commentUser.trim()) && regex.test(commentContent.trim())  )
+        {
+            sendData()
+        }
+        else{
+            alert('Check username and comment')
+            
+        }
        
         
         

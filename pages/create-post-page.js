@@ -7,6 +7,8 @@ function CreatePostPage()
     const [content,setContent] = useState('')
     const router = useRouter()
 
+    let regex = /^[a-zA-Z]+[0-9a-zA-Z !\.'?",]*$/
+
     
     const sendData = async()=>
     {
@@ -40,7 +42,16 @@ function CreatePostPage()
     function handleForm(e)
     {
         e.preventDefault()
-        sendData()
+        if(regex.test(title.trim()) && regex.test(content.trim())  )
+        {
+            sendData()
+        }
+        else{
+            alert('Check the title and content')
+            
+        }
+        
+        
        
     }
     return (
