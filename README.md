@@ -18,24 +18,25 @@ yarn dev
 
 ## Home Page (root url)
 
-# List of Blogs are displayed 
+### List of Blogs are displayed 
 
-# Each Blog when clicked routes to its entire content page 
+### Each Blog when clicked routes to its entire content page 
 
-# Has a Create Blog button 
+### Has a Create Blog button 
 
 
 ## Create Post Page
 
-# A form that accepts title and content
+### A form that accepts title and content
+
 
 ## Post Page 
 
-# Each Blog Displayed with comments 
+### Each Blog Displayed with comments 
 
-# Comments can be added 
+### Comments can be added 
 
-# Edit Button -> to edit the content which routes to edit-page 
+### Edit Button -> to edit the content which routes to edit-page 
 
-# Delete Button -> deletes that particular post and routes back to the home page 
+### Delete Button -> deletes that particular post and routes back to the home page 
 
