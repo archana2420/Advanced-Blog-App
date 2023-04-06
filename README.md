@@ -1,3 +1,9 @@
+## Install the required packages
+
+```bash
+npm install
+```
+
 ## First Step 
 
 First, run json-server so that we can fetch some fake posts for the home page and post page
